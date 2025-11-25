@@ -9,7 +9,7 @@ const parameters = z.object({
   ts_code: z
     .string()
     .optional()
-    .describe('股票代码（支持多个股票同时提取，逗号分隔）'),
+    .describe('股票代码（支持多个股票同时提取，逗号分隔）eg. 000001.SZ'),
   start_date: z.string().optional().describe('开始日期(YYYYMMDD)'),
   end_date: z.string().optional().describe('结束日期(YYYYMMDD)'),
 });

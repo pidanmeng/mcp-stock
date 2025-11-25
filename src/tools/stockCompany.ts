@@ -6,7 +6,10 @@ import { TSResponseData, tuShareClient } from '../utils/tuShareClient';
 const name = 'stock_company';
 const description = '获取上市公司基本信息';
 const parameters = z.object({
-  ts_code: z.string().optional().describe('股票代码'),
+  ts_code: z
+    .string()
+    .optional()
+    .describe('股票代码（支持多个股票同时提取，逗号分隔）eg. 000001.SZ'),
   exchange: z
     .string()
     .optional()

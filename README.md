@@ -40,6 +40,7 @@ bun run build
       "args": ["-y","@pidanmoe/mcp-stock"],
       "command": "npx",
       "env": {
+        "TUSHARE_TOKEN": "YOUR_TUSHARE_TOKEN"
         // 环境变量
       }
     }

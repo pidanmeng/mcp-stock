@@ -2,24 +2,26 @@ import { useLogger } from './logger';
 
 const TUSHARE_API_URL = 'https://api.tushare.pro';
 
-interface TuShareRequest<T> {
+export interface TuShareRequest<T> {
   api_name: string;
   token: string;
   params: T;
   fields: string;
 }
 
-interface TuShareResponse<T> {
+export interface TuShareResponse<T> {
   request_id: string;
   code: number;
   msg: string;
   data: {
     fields: string[];
-    items: T[];
+    items: T;
     has_more: boolean;
     count: number;
   };
 }
+
+export type TSResponseData<T> = TuShareResponse<T>['data'];
 
 /**
  * 发送请求到 Tushare API

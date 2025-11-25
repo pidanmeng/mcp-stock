@@ -8,10 +8,9 @@ const description = '获取股票每月行情数据';
 const parameters = z.object({
   ts_code: z
     .string()
-    .optional()
     .describe('股票代码（支持多个股票同时提取，逗号分隔）eg. 000001.SZ'),
-  start_date: z.string().optional().describe('开始日期(YYYYMMDD)'),
-  end_date: z.string().optional().describe('结束日期(YYYYMMDD)'),
+  start_date: z.string().describe('开始日期(YYYYMMDD)'),
+  end_date: z.string().describe('结束日期(YYYYMMDD)'),
 });
 
 // 定义具名类型别名

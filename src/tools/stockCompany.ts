@@ -8,12 +8,7 @@ const description = '获取上市公司基本信息';
 const parameters = z.object({
   ts_code: z
     .string()
-    .optional()
     .describe('股票代码（支持多个股票同时提取，逗号分隔）eg. 000001.SZ'),
-  exchange: z
-    .string()
-    .optional()
-    .describe('交易所代码，SSE上交所 SZSE深交所 BSE北交所'),
 });
 
 // 定义具名类型别名
@@ -117,16 +112,15 @@ const stockCompany: Tool<any, z.ZodType<typeof parameters._type>> = {
   description,
   parameters,
   execute: async (args, context) => {
-    const { ts_code, exchange } = args;
+    const { ts_code } = args;
     const { log } = context;
     const logger = useLogger(log);
 
-    logger.info('获取上市公司基本信息', { ts_code, exchange });
+    logger.info('获取上市公司基本信息', { ts_code });
 
     try {
       const params: { ts_code?: string; exchange?: string } = {};
       if (ts_code) params.ts_code = ts_code;
-      if (exchange) params.exchange = exchange;
 
       const result = await tuShareClient<
         { ts_code?: string; exchange?: string },

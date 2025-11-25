@@ -10,7 +10,7 @@ import { currentTime } from './tools/currentTime';
 
 const server = new FastMCP({
   name: 'mcp-stock',
-  version: '1.0.1',
+  version: '1.0.2',
 });
 
 server.addTool(ipoNewShare);

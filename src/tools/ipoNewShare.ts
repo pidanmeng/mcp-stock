@@ -6,8 +6,8 @@ import { TSResponseData, tuShareClient } from '../utils/tuShareClient';
 const name = 'ipo_new_share';
 const description = '获取新股IPO信息';
 const parameters = z.object({
-  start_date: z.string().optional().describe('上网发行开始日期(YYYYMMDD)'),
-  end_date: z.string().optional().describe('上网发行结束日期(YYYYMMDD)'),
+  start_date: z.string().describe('上网发行开始日期(YYYYMMDD)'),
+  end_date: z.string().describe('上网发行结束日期(YYYYMMDD)'),
 });
 
 // 定义具名类型别名

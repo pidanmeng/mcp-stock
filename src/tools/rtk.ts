@@ -6,7 +6,9 @@ import { TSResponseData, tuShareClient } from '../utils/tuShareClient';
 const name = 'rt_k';
 const description = '获取实时日K线行情';
 const parameters = z.object({
-  ts_code: z.string().describe('股票代码，支持通配符方式，e.g. 6.SH、301.SZ、600000.SH'),
+  ts_code: z
+    .string()
+    .describe('股票代码，支持通配符方式，e.g. 6.SH、301.SZ、600000.SH'),
 });
 
 // 定义具名类型别名
@@ -45,18 +47,8 @@ function formatRtKResult(data: TSResponseData<RtKItem[]>): string {
   let result = `共找到${items.length}条实时行情数据：\n\n`;
 
   items.forEach((item, index) => {
-    const [
-      tsCode,
-      name,
-      preClose,
-      high,
-      open,
-      low,
-      close,
-      vol,
-      amount,
-      num
-    ] = item;
+    const [tsCode, name, preClose, high, open, low, close, vol, amount, num] =
+      item;
 
     result += `${index + 1}. ${name} (${tsCode})\n`;
     result += `   昨收价: ${preClose}\n`;
@@ -85,13 +77,13 @@ const rtK: Tool<any, z.ZodType<typeof parameters._type>> = {
 
     try {
       const params: { ts_code: string } = {
-        ts_code
+        ts_code,
       };
 
-      const result = await tuShareClient<
-        { ts_code: string },
-        RtKItem[]
-      >('rt_k', params);
+      const result = await tuShareClient<{ ts_code: string }, RtKItem[]>(
+        'rt_k',
+        params
+      );
 
       // 将JSON结果转换为自然语言描述
       return formatRtKResult(result);

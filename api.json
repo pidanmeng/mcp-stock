@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "tushare",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "name": "tushare",
+  "item": [
+    {
+      "name": "IPO 新股",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"new_share\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"start_date\": \"20180901\", \"end_date\": \"20181018\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    },
+    {
+      "name": "上市公司基本信息",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"stock_company\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"ts_code\": \"301575.SZ\", \"exchange\": \"SZSE\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    },
+    {
+      "name": "A股历史日线",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"daily\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"ts_code\": \"301052.SZ\", \"start_date\": \"20250701\", \"end_date\": \"20250718\" // \"trade_date\": \"20180810\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    },
+    {
+      "name": "A股实时日线（单日）",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"rt_k\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"ts_code\": \"301052.SZ\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    },
+    {
+      "name": "A股历史周线",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"weekly\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"ts_code\": \"301052.SZ\", \"start_date\": \"20250701\", \"end_date\": \"20250718\" // \"trade_date\": \"20180810\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    },
+    {
+      "name": "A股历史月线",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://api.tushare.pro",
+          "host": [
+            "api.tushare.pro"
+          ],
+          "protocol": "http",
+          "path": "",
+          "query": []
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"api_name\": \"monthly\", \"token\": \"0bb4680be9e86218e24ae6139674153c89d45006a73a746642c6377b\", \"params\": { \"ts_code\": \"301052.SZ\", \"start_date\": \"20250701\", \"end_date\": \"20250918\" // \"trade_date\": \"20180810\" }, \"fields\": \"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "auth": null
+      }
+    }
+  ]
+}
